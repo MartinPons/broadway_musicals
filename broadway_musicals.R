@@ -108,8 +108,8 @@ grosses_top_10 %>%
   # adding show titles
   geom_text(
     
-    # the geoms gets aggregated data: summarisation by mean date
-    # so every show label is at the middle of the distribution
+    # this geom gets a new data layer: the data is summarized by
+    # median date so every show label is at the middle of the distribution
     data = grosses_top_10 %>% 
               group_by(show) %>% 
               summarise(week_ending = median(week_ending), 
