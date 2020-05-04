@@ -64,7 +64,7 @@ grosses <- grosses %>%
 # obtaining top 10 shows by adjusted revenue
 top_10_shows <- grosses %>% 
   group_by(show) %>% 
-  summarise(weekly_gross = sum(weekly_gross)) %>%
+  summarise(weekly_gross = sum(weekly_gross_adjusted)) %>%
   top_n(10, weekly_gross) %>% 
   .$show
 
