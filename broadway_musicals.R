@@ -3,13 +3,9 @@
 # Data comes from PlayBill, extracted and cleaned by Alex Cookson
 # Link to the tidytuesday dataset: https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-04-28/
 
-
 # Author: Martín Pons
 
-
-
 # INITTIAL SETTTING -------------------------------------------------------
-
 
 # libraries
 library(tidyverse)
@@ -33,20 +29,13 @@ adjust_revenue_variable <- function(var, deflator) {
 }
 
 
-
 # LOAD DATA ---------------------------------------------------------------
 
 grosses <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-04-28/grosses.csv')
 cpi <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-04-28/cpi.csv')
 
 
-
 # WRANGLING ----------------------------------------------------------------
-
-
-## Deflated variables ##
-
-# Adjustement of revenue related variables to take inflation into account
 
 # creation of month and year variables in grosses
 grosses <- grosses %>% 
@@ -70,7 +59,6 @@ grosses <- grosses %>%
             .funs = list(adjusted = ~adjust_revenue_variable(., cpi)))
 
 
-
 # ADDITIONAL FEATURE CREATION ---------------------------------------------
 
 # obtaining top 10 shows by adjusted revenue
@@ -82,8 +70,6 @@ top_10_shows <- grosses %>%
 
 
 # PREPARING DATA FOR VISUALIZATION: TOP 10 SHOWS AND QUANTILE GENERATION --
-
-
 
 grosses_top_10 <- grosses %>% 
   
