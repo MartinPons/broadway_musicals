@@ -3,13 +3,10 @@
 # Data comes from PlayBill, extracted and cleaned by Alex Cookson
 # Link to the tidytuesday dataset: https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-04-28/
 
-
 # Author: Martín Pons
 
 
-
 # INITTIAL SETTTING -------------------------------------------------------
-
 
 # libraries
 library(tidyverse)
@@ -33,16 +30,13 @@ adjust_revenue_variable <- function(var, deflator) {
 }
 
 
-
 # LOAD DATA ---------------------------------------------------------------
 
 grosses <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-04-28/grosses.csv')
 cpi <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-04-28/cpi.csv')
 
 
-
 # WRANGLING ----------------------------------------------------------------
-
 
 ## Deflated variables ##
 
@@ -83,8 +77,6 @@ top_10_shows <- grosses %>%
 
 # PREPARING DATA FOR VISUALIZATION: TOP 10 SHOWS AND QUANTILE GENERATION --
 
-
-
 grosses_top_10 <- grosses %>% 
   
   # filtering top 10 selling shows
@@ -93,7 +85,7 @@ grosses_top_10 <- grosses %>%
   # obtaining revenue quantile per show
   group_by(show) %>% 
   mutate(
-    show_gross_quantile = ntile(weekly_gross_adjusted, 100))
+    show_gross_quantile = weekly_gross_adjusted / max(weekly_gross_adjusted))
 
 
 # VISUALIZATION: REVENUE DISTRIBUTION THROUGH TIME ------------------------
@@ -138,7 +130,7 @@ grosses_top_10 %>%
   
   # title, color and captin labs
   labs(title = "Revenue distribution through time for the top 10 selling Broadway musicals (1985 - 2020)", 
-       color = "Weekly revenue \npercentile", 
+       color = "Revenue relative to \nmaximum weekly revenue", 
        caption = "Data comes from PlayBill, extracted and cleaned by Alex Cookson \nRevenue adjusted by monthly consumer price index. Base = 1985") +
   
   # plot theme
