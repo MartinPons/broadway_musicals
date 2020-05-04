@@ -14,7 +14,6 @@
 # libraries
 library(tidyverse)
 library(lubridate)
-library(Hmisc)
 library(forcats)
 library(scales)
 library(extrafont)
