@@ -38,10 +38,6 @@ cpi <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytu
 
 # WRANGLING ----------------------------------------------------------------
 
-## Deflated variables ##
-
-# Adjustement of revenue related variables to take inflation into account
-
 # creation of month and year variables in grosses
 grosses <- grosses %>% 
   mutate(month = month(week_ending), 
@@ -82,7 +78,7 @@ grosses_top_10 <- grosses %>%
   # filtering top 10 selling shows
   filter(show %in% top_10_shows) %>% 
   
-  # obtaining revenue quantile per show
+  # obtaining relative revenue per show
   group_by(show) %>% 
   mutate(
     show_gross_quantile = weekly_gross_adjusted / max(weekly_gross_adjusted))
