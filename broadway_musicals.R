@@ -6,7 +6,7 @@
 # Author: Martín Pons
 
 
-# INITTIAL SETTTING -------------------------------------------------------
+# INITIAL SETTING -------------------------------------------------------
 
 # libraries
 library(tidyverse)
