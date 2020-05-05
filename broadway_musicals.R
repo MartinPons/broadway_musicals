@@ -90,7 +90,7 @@ grosses_top_10 <- grosses %>%
 # for the first time in order for the code to detect the Georgia Font. please note that fonts are 
 # loaded from Windows operating system
 
-# font_import
+# font_import()
 # loadfonts(device = "win")
 
 grosses_top_10 %>% 
