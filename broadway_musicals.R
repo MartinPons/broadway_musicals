@@ -20,7 +20,7 @@ library(here)
 
 # helpler functions
 
-# adjust_variable is used to deflate revenue variables, taking inflation into account
+# adjust_revenue_variable is used to deflate revenue variables, taking inflation into account
 adjust_revenue_variable <- function(var, deflator) {
   
   # numeric, numeric -> numeric
