@@ -87,7 +87,7 @@ grosses_top_10 <- grosses %>%
 # VISUALIZATION: REVENUE DISTRIBUTION THROUGH TIME ------------------------
 
 # Note: you'll have to uncomment the two lines in the next paragraph if you use extrafont library 
-# for the first time, in order for the code to detect the Georgia Font. please not that fonts are 
+# for the first time in order for the code to detect the Georgia Font. please note that fonts are 
 # loaded from Windows operating system
 
 # font_import
